@@ -16,7 +16,7 @@
 
 ## Unified Modeling Language: 
 
-![Capture](https://user-images.githubusercontent.com/crisgahur/OOPExerciseTree/dev/OOPExercise.pdf)
+![Capture](https://user-images.githubusercontent.com/crisgahur/OOPExerciseTree/dev/OOPExercise.png)
 
 ## What happen when I execute this project?
 - An ArrayList, a boolean and a int variable are created.
