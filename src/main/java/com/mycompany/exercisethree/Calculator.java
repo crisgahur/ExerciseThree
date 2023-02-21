@@ -11,9 +11,7 @@ import java.util.regex.Pattern;
  * @author Cristian Gallego
  */
 public class Calculator {
-
     public List<Double> history = new ArrayList<>();
-    public List<Double> listNumbers = new ArrayList<>();
     public int option;
 
     public List<Double> getInputString() {
@@ -21,12 +19,16 @@ public class Calculator {
         System.out.println("Write the numbers:");
         String values = scanner.nextLine();
         List<Double> numbersList = new ArrayList<>();
-        Pattern pattern = Pattern.compile("\\d+");
-        Matcher matcher = pattern.matcher(values);
+        final Pattern pattern = Pattern.compile("\\d+");
+        final Matcher matcher = pattern.matcher(values);
         while (matcher.find()) {
             double number = Double.parseDouble(matcher.group());
             numbersList.add(number);
         }
+        if(numbersList.size()<1){
+            System.out.println("You didn't write numbers, please do it again");
+            getInputString();
+                    }
         return numbersList;
     }
 

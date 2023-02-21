@@ -1,6 +1,8 @@
 package com.mycompany.exercisethree;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -11,8 +13,9 @@ public class BasicCalculator extends Calculator {
 
     @Override
     public void operateCalculator() {
-
-        Scanner getInt = new Scanner(System.in);
+        List<Double> listNumbers = new ArrayList<>();
+        Scanner optionSelected = new Scanner(System.in);
+        
         System.out.println("WELCOME TO THE BASIC CALCULATOR, PLEASE CHOOSE WHAT YOU WANT TO DO ");
         System.out.println("1. ADD");
         System.out.println("2. SUBSTRACT");
@@ -21,11 +24,11 @@ public class BasicCalculator extends Calculator {
         System.out.println("5. RETURN");
 
         try {
-            option = getInt.nextInt();
-            listNumbers = (option >= 1 && option <= 4) ? getInputString() : null;
+            option = optionSelected.nextInt();
+            listNumbers = (option >= 1 && option <= 4) ? getInputString() : listNumbers;
         } catch (InputMismatchException e) {
             System.out.println("Invalid option, please enter a valid option");
-            getInt.nextLine(); // clear the scanner buffer
+            optionSelected.nextLine(); // clear the scanner buffer
             operateCalculator();
         }
 

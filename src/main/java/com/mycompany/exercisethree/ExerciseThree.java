@@ -25,7 +25,6 @@ public class ExerciseThree {
             System.out.println("5. EXIT");
             option = getInt.nextInt();
             
-
             switch (option) {
                 case 1 -> {
                     BasicCalculator basicCalculator = new BasicCalculator();
@@ -52,9 +51,7 @@ public class ExerciseThree {
                     System.out.println("CALCULATOR DISCONNECTED");
                     continues = false;
                 }
-
             }
         } while (continues);
-
     }
 }

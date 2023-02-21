@@ -1,5 +1,6 @@
 package com.mycompany.exercisethree;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -9,11 +10,11 @@ import java.util.Scanner;
  * @author Cristian Gallego
  */
 public class AdvanceCalculator extends Calculator {
-
     @Override
     public void operateCalculator() {
+        List<Double> listNumbers = new ArrayList<>();
         
-        Scanner getInt = new Scanner(System.in);
+        Scanner optionSelected = new Scanner(System.in);
         System.out.println("WELCOME TO THE ADVANCE CALCULATOR, PLEASE CHOOSE WHAT YOU WANT TO DO ");
         System.out.println("1. ADD");
         System.out.println("2. SUBSTRACT");
@@ -23,11 +24,11 @@ public class AdvanceCalculator extends Calculator {
         System.out.println("6. LOGARITHM");
         System.out.println("7. RETURN");
         try {
-            option = getInt.nextInt();
-            listNumbers = (option >= 1 && option <= 4) ? getInputString() : null;
+            option = optionSelected.nextInt();
+                 listNumbers = (option >= 1 && option <= 6) ? getInputString() : listNumbers;
         } catch (InputMismatchException e) {
             System.out.println("Invalid option, please enter a valid option");
-            getInt.nextLine(); // clear the scanner buffer
+            optionSelected.nextLine(); // clear the scanner buffer
             operateCalculator();
         }
 
@@ -59,22 +60,21 @@ public class AdvanceCalculator extends Calculator {
             case 7 -> {
                 System.out.println('\n');
             }
-            
         }
-        
     }
 
     public double calculateLogarithm(List<Double> numbersList) {
         double base = numbersList.get(0);
         double number = numbersList.get(1);
-        history.add(Math.log(number) / Math.log(base));
-        return (Math.log(number) / Math.log(base));
+        double result = Math.log(number) / Math.log(base);
+        history.add(result);
+        return result;
     }
 
     public double powersOfThree(List<Double> numbersList) {
         double number = numbersList.get(0);
-        history.add(number * number * number);
-        return (number * number * number);
+        double result = Math.pow(number, 3);
+        history.add(result);
+        return result;
     }
-
 }
