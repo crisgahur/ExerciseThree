@@ -67,14 +67,14 @@ public class AdvanceCalculator extends Calculator {
         double base = numbersList.get(0);
         double number = numbersList.get(1);
         double result = Math.log(number) / Math.log(base);
-        history.add(result);
+        history.add("Logarithm requested. Values:" + numbersList.toString() +  ". Result: " + Double.toString(result));
         return result;
     }
 
     public double powersOfThree(List<Double> numbersList) {
         double number = numbersList.get(0);
         double result = Math.pow(number, 3);
-        history.add(result);
+        history.add("Power of requested. Values:" + numbersList.toString() +  ". Result: " + Double.toString(result));
         return result;
     }
 }

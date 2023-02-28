@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * @author Cristian Gallego
  */
 public class Calculator {
-    public List<Double> history = new ArrayList<>();
+    public List<String> history = new ArrayList<>();
     public int option;
 
     public List<Double> getInputString() {
@@ -37,7 +37,7 @@ public class Calculator {
         for (double number : numbersList) {
             sum += number;
         }
-        history.add(sum);
+        history.add("Add requested. Values:" + numbersList.toString() + ". Result: " + Double.toString(sum));
         return sum;
     }
 
@@ -47,7 +47,7 @@ public class Calculator {
             double value = numbersList.get(i);
             result = result - value;
         }
-        history.add(result);
+        history.add("Substraction requested. Values:" + numbersList.toString() +  ". Result: " + Double.toString(result));
         return result;
     }
 
@@ -57,7 +57,7 @@ public class Calculator {
             double value = numbersList.get(i);
             result *= value;
         }
-        history.add(result);
+        history.add("Multiply requested. Values:" + numbersList.toString() +  ". Result: " + Double.toString(result));
         return result;
 
     }
@@ -68,7 +68,7 @@ public class Calculator {
             double value = numbersList.get(i);
             result /= value;
         }
-        history.add(result);
+        history.add("Divide requested. Values:" + numbersList.toString() +  ". Result: " + Double.toString(result));
         return result;
     }
 
